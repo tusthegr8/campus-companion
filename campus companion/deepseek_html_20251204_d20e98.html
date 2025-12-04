@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Companion - USIU Smart Campus Helper</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo" onclick="showSection('home'); return false;">
+                <i class="fas fa-graduation-cap"></i>
+                <h1>Campus Companion</h1>
+            </a>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#" onclick="showSection('home'); return false;">Home</a></li>
+                    <li><a href="#" onclick="showSection('about'); return false;">About</a></li>
+                    <li><a href="#" onclick="showSection('features'); return false;">Features</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons" id="authButtons">
+                <button class="btn btn-outline" onclick="showSection('login')">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+                <button class="btn btn-primary" onclick="showSection('register')">
+                    <i class="fas fa-user-plus"></i> Register
+                </button>
+            </div>
+            <button class="mobile-menu" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Sections -->
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <h2>Welcome to Campus Companion</h2>
+                <p>Your all-in-one solution for navigating campus life at USIU. Access schedules, events, announcements, and more in one centralized platform.</p>
+                <div class="hero-buttons" id="heroButtons">
+                    <button class="btn btn-primary pulse" onclick="handleGetStarted()">
+                        <i class="fas fa-user-plus"></i> Get Started
+                    </button>
+                    <button class="btn btn-outline" onclick="showSection('features')">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about hidden">
+            <div class="container">
+                <div class="section-title">
+                    <h2>About Campus Companion</h2>
+                    <p>Learn about our mission to enhance the university experience through digital innovation</p>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Project Introduction and Background</h3>
+                        <p>The Campus Companion -- USIU Smart Campus Helper is a web application designed to enhance the university experience by integrating information and services for students. It addresses the issue of unstructured access to fundamental campus-related information such as class schedules, events, navigation, and notices.</p>
+                        <p>Currently, students utilize disconnected channels including emails, notice boards, and WhatsApp groups, which causes missed information and inefficiency. The Campus Companion aims to consolidate these into one accessible platform, promoting efficiency and improved communication within the university community.</p>
+                        
+                        <h3>Problem Statement</h3>
+                        <p>Universities tend to have the problem of effective communication and information dissemination between students and staff. At USIU-Africa, important announcements such as class changes, event alerts, and general important notices are relayed via multiple, often uncoordinated platforms.</p>
+                        <p>This promotes fragmentation, confusion, missed announcements, and inefficiencies in daily campus life. Students also find it difficult to locate buildings or classrooms, especially new students who are unfamiliar with the campus terrain. A centralized digital solution that simplifies access to campus information, consolidates navigation assistance, and enhances the overall student experience is urgently needed.</p>
+                    </div>
+                    
+                    <div class="objectives">
+                        <h3>Project Objectives</h3>
+                        <ul class="objectives-list">
+                            <li>To create a smart campus web application that centralizes communication, navigation, and scheduling for USIU students and staff</li>
+                            <li>To bring campus information systems into one web-based system</li>
+                            <li>To enhance the efficiency of campus communications and event management</li>
+                            <li>To establish an interactive campus map and chatbot assistant to find places in the campus and respond to inquiries</li>
+                            <li>To enable efficient dissemination of announcements, class schedules, and alerts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features hidden">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Key Features</h2>
+                    <p>Campus Companion brings together all the essential tools you need for a seamless campus experience.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3>Class Schedules</h3>
+                        <p>View and manage your class schedules with ease. Get reminders for upcoming classes and never miss a lecture.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h3>Campus Announcements</h3>
+                        <p>Stay updated with the latest campus announcements, important notices, and emergency alerts in real-time.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h3>Campus Navigation</h3>
+                        <p>Find your way around campus with interactive maps and building location assistance.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Event Management</h3>
+                        <p>Discover, register, and manage campus events, workshops, seminars, and social activities.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h3>Admin Tools</h3>
+                        <p>Comprehensive administrative tools for content management, user management, and campus communications.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <h3>Real-time Notifications</h3>
+                        <p>Receive instant notifications for class changes, event updates, and important campus announcements.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login Section -->
+        <section id="login" class="auth-container hidden">
+            <div class="auth-form">
+                <div class="success-message" id="loginSuccessMessage">Login successful! Redirecting...</div>
+                <div class="error-message hidden" id="loginErrorMessage"></div>
+                <h2>Login to Campus Companion</h2>
+                <form id="loginForm" novalidate>
+                    <div class="form-group">
+                        <label for="loginUserType">I am a:</label>
+                        <select id="loginUserType" class="form-control" required>
+                            <option value="">Select user type</option>
+                            <option value="student">Student</option>
+                            <option value="admin">Administrator</option>
+                        </select>
+                        <div class="error-message hidden" id="loginUserTypeError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" class="form-control" placeholder="Enter your email" required>
+                        <div class="error-message hidden" id="loginEmailError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password" required minlength="8">
+                        <div class="error-message hidden" id="loginPasswordError"></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+                </form>
+                <div class="auth-switch">
+                    <p>Don't have an account? <a href="#" onclick="showSection('register'); return false;">Register here</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Register Section -->
+        <section id="register" class="auth-container hidden">
+            <div class="auth-form">
+                <div class="success-message" id="registerSuccessMessage">Registration successful! Redirecting...</div>
+                <div class="error-message hidden" id="registerErrorMessage"></div>
+                <h2>Create an Account</h2>
+                <form id="registerForm" novalidate>
+                    <div class="form-group">
+                        <label for="regName">Full Name</label>
+                        <input type="text" id="regName" class="form-control" placeholder="Enter your full name" required minlength="2">
+                        <div class="error-message hidden" id="regNameError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="regEmail">Email Address</label>
+                        <input type="email" id="regEmail" class="form-control" placeholder="Enter your email" required>
+                        <div class="error-message hidden" id="regEmailError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="regPassword">Password</label>
+                        <input type="password" id="regPassword" class="form-control" placeholder="Create a password (min. 8 characters)" required minlength="8">
+                        <div class="error-message hidden" id="regPasswordError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="regUserType">User Type</label>
+                        <select id="regUserType" class="form-control" required>
+                            <option value="">Select user type</option>
+                            <option value="student">Student</option>
+                            <option value="admin">Administrator</option>
+                        </select>
+                        <div class="error-message hidden" id="regUserTypeError"></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-user-plus"></i> Register
+                    </button>
+                </form>
+                <div class="auth-switch">
+                    <p>Already have an account? <a href="#" onclick="showSection('login'); return false;">Login here</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="dashboard hidden">
+            <div class="container">
+                <div class="dashboard-header">
+                    <div class="user-info">
+                        <div class="user-avatar" id="userAvatar">CK</div>
+                        <div>
+                            <h2 id="userName">Carl Kitusa</h2>
+                            <p id="userRole">Student</p>
+                        </div>
+                    </div>
+                    <div class="dashboard-controls">
+                        <button class="btn btn-outline" onclick="showSection('profile')">
+                            <i class="fas fa-user"></i> Profile
+                        </button>
+                        <button class="btn btn-danger" onclick="logout()">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Student Dashboard -->
+                <div id="studentDashboard">
+                    <div class="dashboard-grid">
+                        <div class="dashboard-card">
+                            <h3><i class="fas fa-calendar-alt"></i> Today's Schedule</h3>
+                            <ul class="schedule-list">
+                                <li class="schedule-item">
+                                    <div>
+                                        <div class="schedule-time">08:00 - 10:00</div>
+                                        <div>APT3065 - Software Engineering</div>
+                                        <div>Room: TC-304</div>
+                                    </div>
+                                </li>
+                                <li class="schedule-item">
+                                    <div>
+                                        <div class="schedule-time">10:30 - 12:30</div>
+                                        <div>APT3070 - Database Systems</div>
+                                        <div>Room: TC-301</div>
+                                    </div>
+                                </li>
+                                <li class="schedule-item">
+                                    <div>
+                                        <div class="schedule-time">14:00 - 16:00</div>
+                                        <div>APT3080 - Web Development</div>
+                                        <div>Room: TC-310</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="dashboard-card">
+                            <h3><i class="fas fa-bullhorn"></i> Recent Announcements</h3>
+                            <ul class="announcements-list">
+                                <li class="announcement-item">
+                                    <div>
+                                        <div>Midterm Project Submission Deadline Extended</div>
+                                        <div class="announcement-date">Posted: December 15, 2025</div>
+                                    </div>
+                                </li>
+                                <li class="announcement-item">
+                                    <div>
+                                        <div>Campus Maintenance - Library Closed on Saturday</div>
+                                        <div class="announcement-date">Posted: December 12, 2025</div>
+                                    </div>
+                                </li>
+                                <li class="announcement-item">
+                                    <div>
+                                        <div>Career Fair - December 5-7, 2025</div>
+                                        <div class="announcement-date">Posted: December 10, 2025</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="dashboard-card">
+                            <h3><i class="fas fa-calendar-check"></i> Upcoming Events</h3>
+                            <ul class="events-list">
+                                <li class="event-item">
+                                    <div>
+                                        <div class="event-date">December 20, 2025</div>
+                                        <div>Tech Club Meeting</div>
+                                        <div>Location: Student Center</div>
+                                    </div>
+                                </li>
+                                <li class="event-item">
+                                    <div>
+                                        <div class="event-date">December 25, 2025</div>
+                                        <div>Guest Lecture: AI in Education</div>
+                                        <div>Location: Auditorium A</div>
+                                    </div>
+                                </li>
+                                <li class="event-item">
+                                    <div>
+                                        <div class="event-date">December 30, 2025</div>
+                                        <div>Annual Career Fair</div>
+                                        <div>Location: Sports Complex</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Admin Dashboard -->
+                <div id="adminDashboard" class="hidden">
+                    <div class="admin-dashboard">
+                        <h3>Administrator Dashboard</h3>
+                        
+                        <div class="admin-stats">
+                            <div class="stat-card">
+                                <h4>254</h4>
+                                <p>Active Students</p>
+                            </div>
+                            <div class="stat-card">
+                                <h4>6</h4>
+                                <p>Upcoming Events</p>
+                            </div>
+                            <div class="stat-card">
+                                <h4>2</h4>
+                                <p>Pending Announcements</p>
+                            </div>
+                            <div class="stat-card">
+                                <h4>96%</h4>
+                                <p>System Uptime</p>
+                            </div>
+                        </div>
+
+                        <div class="admin-actions">
+                            <div class="action-card">
+                                <h4>Content Management</h4>
+                                <p>Create, edit, and manage all campus content including announcements, events, and schedules.</p>
+                                <button class="btn btn-primary" style="margin-top: 1rem;" onclick="openAdminTab('announcements')">
+                                    <i class="fas fa-edit"></i> Manage Content
+                                </button>
+                            </div>
+                            <div class="action-card">
+                                <h4>User Management</h4>
+                                <p>Manage student and staff accounts, reset passwords, and handle user permissions.</p>
+                                <button class="btn btn-primary" style="margin-top: 1rem;" onclick="openAdminTab('users')">
+                                    <i class="fas fa-users-cog"></i> Manage Users
+                                </button>
+                            </div>
+                            <div class="action-card">
+                                <h4>Communication Tools</h4>
+                                <p>Send bulk notifications, create announcement campaigns, and manage emergency alerts.</p>
+                                <button class="btn btn-primary" style="margin-top: 1rem;">
+                                    <i class="fas fa-bullhorn"></i> Send Notifications
+                                </button>
+                            </div>
+                            <div class="action-card">
+                                <h4>Analytics & Reports</h4>
+                                <p>View system usage statistics, generate reports, and monitor platform performance.</p>
+                                <button class="btn btn-primary" style="margin-top: 1rem;">
+                                    <i class="fas fa-chart-line"></i> View Analytics
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Admin Panel -->
+                    <div id="adminPanel" class="admin-panel">
+                        <h2>Admin Panel</h2>
+                        <div class="admin-tabs">
+                            <button class="admin-tab active" onclick="openAdminTab('announcements')">Announcements</button>
+                            <button class="admin-tab" onclick="openAdminTab('events')">Events</button>
+                            <button class="admin-tab" onclick="openAdminTab('schedules')">Schedules</button>
+                            <button class="admin-tab" onclick="openAdminTab('users')">User Management</button>
+                        </div>
+
+                        <div class="admin-content">
+                            <!-- Announcements Tab -->
+                            <div id="announcements-tab" class="admin-tab-content">
+                                <div class="success-message hidden" id="announcementSuccessMessage"></div>
+                                <div class="error-message hidden" id="announcementErrorMessage"></div>
+                                <h3>Post New Announcement</h3>
+                                <form id="announcementForm" novalidate>
+                                    <div class="form-group">
+                                        <label for="announcementTitle">Title</label>
+                                        <input type="text" id="announcementTitle" class="form-control" placeholder="Enter announcement title" required minlength="5">
+                                        <div class="error-message hidden" id="announcementTitleError"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="announcementContent">Content</label>
+                                        <textarea id="announcementContent" class="form-control" rows="4" placeholder="Enter announcement content" required minlength="10"></textarea>
+                                        <div class="error-message hidden" id="announcementContentError"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="announcementPriority">Priority</label>
+                                        <select id="announcementPriority" class="form-control" required>
+                                            <option value="normal">Normal</option>
+                                            <option value="important">Important</option>
+                                            <option value="urgent">Urgent</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-paper-plane"></i> Post Announcement
+                                    </button>
+                                </form>
+                                
+                                <div class="content-list" id="announcementsList">
+                                    <h4>Posted Announcements</h4>
+                                    <div class="empty-state" id="emptyAnnouncements">
+                                        <i class="fas fa-bullhorn"></i>
+                                        <p>No announcements posted yet. Create your first announcement above.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Events Tab -->
+                            <div id="events-tab" class="admin-tab-content hidden">
+                                <div class="success-message hidden" id="eventSuccessMessage"></div>
+                                <div class="error-message hidden" id="eventErrorMessage"></div>
+                                <h3>Add New Event</h3>
+                                <form id="eventForm" novalidate>
+                                    <div class="form-group">
+                                        <label for="eventTitle">Event Title</label>
+                                        <input type="text" id="eventTitle" class="form-control" placeholder="Enter event title" required minlength="5">
+                                        <div class="error-message hidden" id="eventTitleError"></div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="eventDate">Date</label>
+                                            <input type="date" id="eventDate" class="form-control" required>
+                                            <div class="error-message hidden" id="eventDateError"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="eventTime">Time</label>
+                                            <input type="time" id="eventTime" class="form-control" required>
+                                            <div class="error-message hidden" id="eventTimeError"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="eventLocation">Location</label>
+                                        <input type="text" id="eventLocation" class="form-control" placeholder="Enter event location" required>
+                                        <div class="error-message hidden" id="eventLocationError"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="eventDescription">Description</label>
+                                        <textarea id="eventDescription" class="form-control" rows="3" placeholder="Enter event description" required minlength="10"></textarea>
+                                        <div class="error-message hidden" id="eventDescriptionError"></div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-calendar-plus"></i> Add Event
+                                    </button>
+                                </form>
+                                
+                                <div class="content-list" id="eventsList">
+                                    <h4>Added Events</h4>
+                                    <div class="empty-state" id="emptyEvents">
+                                        <i class="fas fa-calendar"></i>
+                                        <p>No events added yet. Create your first event above.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Schedules Tab -->
+                            <div id="schedules-tab" class="admin-tab-content hidden">
+                                <div class="success-message hidden" id="scheduleSuccessMessage"></div>
+                                <div class="error-message hidden" id="scheduleErrorMessage"></div>
+                                <h3>Update Class Schedules</h3>
+                                <form id="scheduleForm" novalidate>
+                                    <div class="form-group">
+                                        <label for="scheduleCourse">Course</label>
+                                        <input type="text" id="scheduleCourse" class="form-control" placeholder="Enter course name" required minlength="5">
+                                        <div class="error-message hidden" id="scheduleCourseError"></div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="scheduleDate">Date</label>
+                                            <input type="date" id="scheduleDate" class="form-control" required>
+                                            <div class="error-message hidden" id="scheduleDateError"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="scheduleTime">Time</label>
+                                            <input type="time" id="scheduleTime" class="form-control" required>
+                                            <div class="error-message hidden" id="scheduleTimeError"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="scheduleRoom">Room</label>
+                                        <input type="text" id="scheduleRoom" class="form-control" placeholder="Enter room number" required>
+                                        <div class="error-message hidden" id="scheduleRoomError"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="scheduleInstructor">Instructor</label>
+                                        <input type="text" id="scheduleInstructor" class="form-control" placeholder="Enter instructor name" required minlength="2">
+                                        <div class="error-message hidden" id="scheduleInstructorError"></div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-clock"></i> Update Schedule
+                                    </button>
+                                </form>
+                                
+                                <div class="content-list" id="schedulesList">
+                                    <h4>Updated Schedules</h4>
+                                    <div class="empty-state" id="emptySchedules">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <p>No schedules updated yet. Create your first schedule above.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Users Tab -->
+                            <div id="users-tab" class="admin-tab-content hidden">
+                                <div class="success-message hidden" id="userSuccessMessage"></div>
+                                <div class="error-message hidden" id="userErrorMessage"></div>
+                                <h3>User Management</h3>
+                                <form id="userForm" novalidate>
+                                    <div class="form-group">
+                                        <label for="userName">Full Name</label>
+                                        <input type="text" id="userName" class="form-control" placeholder="Enter user name" required minlength="2">
+                                        <div class="error-message hidden" id="userNameError"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="userEmail">Email</label>
+                                        <input type="email" id="userEmail" class="form-control" placeholder="Enter user email" required>
+                                        <div class="error-message hidden" id="userEmailError"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="userType">User Type</label>
+                                        <select id="userType" class="form-control" required>
+                                            <option value="student">Student</option>
+                                            <option value="admin">Administrator</option>
+                                        </select>
+                                        <div class="error-message hidden" id="userTypeError"></div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-user-plus"></i> Add User
+                                    </button>
+                                </form>
+                                
+                                <div class="content-list" id="usersList">
+                                    <h4>Added Users</h4>
+                                    <div class="empty-state" id="emptyUsers">
+                                        <i class="fas fa-users"></i>
+                                        <p>No users added yet. Add your first user above.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile" class="profile hidden">
+            <div class="container">
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar" id="profileAvatar">CK</div>
+                        <div class="profile-details">
+                            <h2 id="profileName">Carl Kitusa</h2>
+                            <p id="profileRole">Student</p>
+                            <p id="profileEmail">carl.kitusa@usiu.ac.ke</p>
+                        </div>
+                    </div>
+
+                    <div class="profile-info" id="profileInfoContent">
+                        <!-- Profile info will be rendered here dynamically -->
+                    </div>
+
+                    <div class="profile-actions" id="profileActions">
+                        <!-- Action buttons will be rendered here dynamically -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Campus Companion</h3>
+                    <p>Your all-in-one solution for navigating campus life at USIU.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" onclick="showSection('home'); return false;"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#" onclick="showSection('about'); return false;"><i class="fas fa-info-circle"></i> About</a></li>
+                        <li><a href="#" onclick="showSection('features'); return false;"><i class="fas fa-star"></i> Features</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> USIU-Africa, Thika Road</li>
+                        <li><i class="fas fa-phone"></i> +254 730 116 000</li>
+                        <li><i class="fas fa-envelope"></i> info@usiu.ac.ke</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Campus Companion - USIU Smart Campus Helper. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js" defer></script>
+</body>
+</html>
